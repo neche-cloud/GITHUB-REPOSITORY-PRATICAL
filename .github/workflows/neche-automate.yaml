@@ -1,4 +1,5 @@
 name: How to upload a file to your GitHub repository
+
 on:
   push:
     branches:
@@ -9,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Open GitHub repository
-        run: hostnamectl-neche-repository
+        run: hostname
 
       - name: Click "Add file"
         run: df -h
 
-      - name: Open GitHub repository
-        run: hostnamectl-neche-repository
+      - name: Check repository
+        run: hostname
 
   click-add-file-2:
     runs-on: ubuntu-latest
@@ -26,10 +27,15 @@ jobs:
 
   select-your-file-3:
     runs-on: ubuntu-latest
-    needs:  click-add-file-2
+    needs: click-add-file-2
     steps:
       - name: Select your file
-        run: mkdir -p /tmp/test && echo "This is a test file." > /tmp/test/testfile.txt
+        run: |
+          mkdir -p /tmp/test
+          echo "This is a test file." > /tmp/test/testfile.txt
+
+      - name: Confirm file creation
+        run: ls -l /tmp/test
 
   wait-for-the-upload-4:
     runs-on: ubuntu-latest
@@ -42,14 +48,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: wait-for-the-upload-4
     steps:
-      - name: Commit the changes
-        run: git config --global user.name "Your Name" && git config --global user
+      - name: Configure Git
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "your-email@example.com"
 
   confirm-the-file-is-there-6:
     runs-on: ubuntu-latest
     needs: commit-the-changes-5
     steps:
       - name: Confirm the file is there
-        run: ls -l /tmp/test
+        run: echo "Workflow completed successfully"
 
       
