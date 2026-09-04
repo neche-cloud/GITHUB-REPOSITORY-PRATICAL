@@ -9,37 +9,37 @@ on:
 
 jobs:
   open-your-github-repository-1:
-    runs-on: neche-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Open GitHub repository
         run: hostnamectl
 
   click-add-file-2:
-    runs-on: neche-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Click "Add file"
         run: df -h
 
   select-your-file-3:
-    runs-on: neche-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Select your file
         run: mkdir -p /tmp/test && echo "This is a test file." > /tmp/test/testfile.txt
 
   wait-for-the-upload-4:
-    runs-on: neche-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Wait for the upload
         run: sleep 5
 
   commit-the-changes-5:
-    runs-on: neche-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Commit the changes
         run: git config --global user.name "Your Name" && git config --global user
 
   confirm-the-file-is-there-6:
-    runs-on: neche-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Confirm the file is there
         run: ls -l /tmp/test
