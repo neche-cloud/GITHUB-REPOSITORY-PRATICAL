@@ -12,7 +12,7 @@ jobs:
     runs-on: neche-automate
     steps:
       - name: Open GitHub repository
-        run: hostnamectl
+        run: hostnamectl-neche-repository
 
   click-add-file-2:
     runs-on: neche-automate
