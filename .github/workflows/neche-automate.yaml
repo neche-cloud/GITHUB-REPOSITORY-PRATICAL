@@ -26,7 +26,7 @@ jobs:
 
   select-your-file-3:
     runs-on: ubuntu-latest
-    needs: [open-your-github-repository-1]
+    needs:  click-add-file-2
     steps:
       - name: Select your file
         run: mkdir -p /tmp/test && echo "This is a test file." > /tmp/test/testfile.txt
